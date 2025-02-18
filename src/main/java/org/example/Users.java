@@ -7,7 +7,17 @@ public class Users {
     public void Users(String username, String password){
         this.username = username;
         this.password = password;
-        TaskList todo = new TaskList();
-        this.todo = todo;
+        this.todo = new TaskList();
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public TaskList getTodo() {
+        return todo;
     }
 }

@@ -1,6 +1,5 @@
 package org.example;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -13,20 +12,42 @@ public class Main {
     public static void signUp(){
         System.out.println("Please enter your username: ");
         String username = scanner.nextLine();
-        System.out.println("Please your password: ");
-        String password= scanner.nextLine();
 
-        for (int i = 0; i<usersArray.length;i++){
-            if(usersArray[i] ==null){
-                usersArray[i] = new User(username, password);
-                System.out.println("Account successfully Created");
-                break;
+        //      checks that a username like this one doesn't already exist. checks that any account in users is both not null or if the given username is already there
+//        also got a warning here that this 'for' does not loop? though it clearly does. i dunno man
+        for (int i = 0; i<usersArray.length;i++) {
+            if (usersArray[i] != null && usersArray[i].getUsername().equals(username)) {
+                System.out.println("User with that name already exists.");
+                return;
+//                standard blank checks for name and password
+            }else if(username.isEmpty()){
+                System.out.println("User name cannot be empty.");
+                return;
             } else{
+                System.out.println("Please enter your password: ");
+                String password= scanner.nextLine();
+                if(password.isEmpty()){
+                    System.out.println("Password cannot be blank.");
+                    return;
+                }
+//              replaces the first null with the new user data
+                for (int x = 0; x<usersArray.length;x++){
+                    if(usersArray[x] ==null){
+                        usersArray[x] = new User(username, password);
+                        System.out.println("Account successfully Created");
+                        System.out.println(Arrays.toString(usersArray));
+                        return;
+                    }
+
+                }
+//                prints if there's no room in the array
                 System.out.println("No more room :(");
+                return;
             }
         }
 
-        System.out.println(Arrays.toString(usersArray));
+
+
 
     }
 

@@ -1,10 +1,14 @@
 package org.example;
 
-public class Users {
-    private String username;
-    private String password;
-    private TaskList todo;
-    public void Users(String username, String password){
+import java.util.Scanner;
+
+public class User {
+    public static Scanner scanner = new Scanner(System.in);
+    private final String username;
+    private final String password;
+    private final TaskList todo;
+
+    public User(String username, String password){
         this.username = username;
         this.password = password;
         this.todo = new TaskList();
@@ -20,4 +24,6 @@ public class Users {
     public TaskList getTodo() {
         return todo;
     }
+
+
 }

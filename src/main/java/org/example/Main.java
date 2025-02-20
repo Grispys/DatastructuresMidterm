@@ -53,6 +53,8 @@ public class Main {
 
     }
 
+
+//    my tried and true sign in method. compares given name and password before displaying further UI.
     public static void signIn(){
         System.out.print("Enter Username: ");
         String username = scanner.nextLine();
@@ -99,6 +101,7 @@ public class Main {
         }
     }
 
+//    main to display options
     public static void main(String[] args) {
         while (true) {
             System.out.println("\n--- To-Do Engine ---");

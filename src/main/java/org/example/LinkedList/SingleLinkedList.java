@@ -2,6 +2,9 @@ package org.example.LinkedList;
 
 import org.example.Tasks;
 
+//this is just the single linked list i made for the first linked list assignment we made, i swapped all references to an integer value
+// to a task type value. works flawlessly
+
 public class SingleLinkedList {
     public Node head;
     public Node tail;

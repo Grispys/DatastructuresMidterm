@@ -8,7 +8,7 @@ public class User {
     private final String password;
     public final TaskList todo;
     static User[] usersArray = new User[10];
-
+//constructor
     public User(String username, String password){
         this.username = username;
         this.password = password;
@@ -26,6 +26,7 @@ public class User {
         return this.todo.showTaskList();
     }
 
+//    task creation to pass to task list
     public void taskCreation(String description){
         this.todo.createTask(description);
     }

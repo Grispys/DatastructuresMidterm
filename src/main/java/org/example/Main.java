@@ -3,10 +3,12 @@ package org.example;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static org.example.User.usersArray;
+
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 //    only ten users can be made
-    static User[] usersArray = new User[10];
+
 //    users are made and sign up is done in the main class
 
     public static void signUp(){
@@ -56,12 +58,14 @@ public class Main {
         String username = scanner.nextLine();
         System.out.print("Enter Password: ");
         String password = scanner.nextLine();
+        User signedInUser = null;
 
 //        System.out.println(users);
 
         for(User user : usersArray){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                System.out.println("Welcome, " + username);
+                signedInUser = user;
+                System.out.println("Welcome, " + signedInUser.getUsername());
                 while (true) {
                     System.out.println("\n--- To-Do Engine ---");
                     System.out.println("1. View To-Do list");
@@ -74,10 +78,10 @@ public class Main {
 
                     switch (choice) {
                         case 1:
-
+                            System.out.println(signedInUser.getTodo());
                             break;
                         case 2:
-
+                            signedInUser.taskCreation("test task");
                             break;
                         case 3:
 

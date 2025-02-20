@@ -6,7 +6,8 @@ public class User {
     public static Scanner scanner = new Scanner(System.in);
     private final String username;
     private final String password;
-    private final TaskList todo;
+    public final TaskList todo;
+    static User[] usersArray = new User[10];
 
     public User(String username, String password){
         this.username = username;
@@ -21,8 +22,12 @@ public class User {
         return password;
     }
 
-    public TaskList getTodo() {
-        return todo;
+    public String getTodo() {
+        return this.todo.showTaskList();
+    }
+
+    public void taskCreation(String description){
+        this.todo.createTask(description);
     }
 
 

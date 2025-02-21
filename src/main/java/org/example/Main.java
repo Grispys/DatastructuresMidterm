@@ -7,6 +7,8 @@ import static org.example.User.usersArray;
 
 public class Main {
     private static final Scanner scanner = new Scanner(System.in);
+//    signedinuser is assigned to current user in the sign in method
+    static User signedInUser = null;
 //    only ten users can be made
 
 //    users are made and sign up is done in the main class
@@ -60,7 +62,7 @@ public class Main {
         String username = scanner.nextLine();
         System.out.print("Enter Password: ");
         String password = scanner.nextLine();
-        User signedInUser = null;
+
 
 //        System.out.println(users);
 
@@ -83,7 +85,7 @@ public class Main {
                             System.out.println(signedInUser.getTodo());
                             break;
                         case 2:
-                            signedInUser.taskCreation("test task");
+                            addTaskCLI();
                             break;
                         case 3:
 
@@ -101,6 +103,19 @@ public class Main {
         }
     }
 
+
+//take description as scanner, and call task creation with given description on current user
+    public static void addTaskCLI(){
+        System.out.println("Enter task description: ");
+        String description = scanner.nextLine();
+        if(description.isEmpty()){
+            System.out.println("Description cannot be empty.");
+            return;
+        }
+        signedInUser.taskCreation(description);
+
+    }
+
 //    main to display options
     public static void main(String[] args) {
         while (true) {
@@ -115,7 +130,6 @@ public class Main {
             switch (choice) {
                 case 1:
                     signIn();
-
                     break;
                 case 2:
                     signUp();
@@ -128,4 +142,8 @@ public class Main {
             }
         }
     }
+
+
+
+
 }

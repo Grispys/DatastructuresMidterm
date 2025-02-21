@@ -88,7 +88,7 @@ public class Main {
                             addTaskCLI();
                             break;
                         case 3:
-
+                            completionCLI();
                             break;
                         case 4:
                             System.out.println("Logging out...");
@@ -113,6 +113,27 @@ public class Main {
             return;
         }
         signedInUser.taskCreation(description);
+
+    }
+
+
+
+    public static void completionCLI(){
+        System.out.println(signedInUser.getTodo());
+        System.out.println("Please select which task to update completion of (0-9): ");
+        int choice = scanner.nextInt();
+        Tasks taskToChange = signedInUser.todo.returnTaskList()[choice];
+        System.out.println(taskToChange);
+        scanner.nextLine();
+        System.out.println("Set this task to completed? (Y/N): ");
+        String choice2 = scanner.nextLine();
+        if(choice2.equalsIgnoreCase("y")){
+            taskToChange.setCompletion();
+            System.out.println("Task updated to completed");
+        }else{
+            System.out.println("Task not updated.");
+        }
+
 
     }
 

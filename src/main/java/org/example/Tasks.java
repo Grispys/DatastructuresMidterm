@@ -35,6 +35,9 @@ public class Tasks {
         }
     }
 
+    public void setCompletion(){
+        this.completion = true;
+    }
 
     public boolean isCompletion() {
         return completion;

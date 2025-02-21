@@ -20,6 +20,9 @@ public class TaskList {
     public String showTaskList(){
         return Arrays.toString(tasksArray);
     }
+    public Tasks[] returnTaskList(){
+        return tasksArray;
+    }
 
 //    changes completion status of a given task i'll add this in later
     public void setCompletion(){
